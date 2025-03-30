@@ -5,4 +5,4 @@ for i in range(6):
     numeros.append(num)
 print(f'A lista de números digitados foi : {numeros}')
 soma = sum(numeros)
-print(soma)
+print(f'A soma de números digitados foi : {soma}')
