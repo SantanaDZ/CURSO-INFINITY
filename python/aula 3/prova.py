@@ -22,7 +22,7 @@ while True:
                 float(input("Digite a nota de História: "))
             )
             alunos.append(aluno)
-            continuar = input("Deseja cadastrar outro aluno? (s/n): ")
+            continuar = input("Deseja cadastrar outro aluno? (s/n): ").lower()
      
     
     elif opcao == '2':
