@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de 3 Meses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .calendario-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            height: 60px; /* Altura para melhor visualização dos agendamentos */
+            vertical-align: top; /* Alinha o conteúdo ao topo da célula */
+            position: relative;
+        }
+        th {
+            background-color: #e9e9e9;
+            color: #333;
+        }
+        .dia-semana {
+            background-color: #d9edf7;
+            color: #31708f;
+            font-weight: bold;
+        }
+        .feriado {
+            background-color: #ffcccc;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .agendamento {
+            font-size: 0.7em;
+            color: #007bff;
+            display: block;
+            margin-top: 5px;
+            line-height: 1.2;
+            text-align: left;
+        }
+        .feriado .agendamento {
+            color: #cc0000;
+        }
+        .outro-mes {
+            color: #aaa;
+            background-color: #f9f9f9;
+        }
+        .destaque {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calendário de Outubro, Novembro e Dezembro de 2025</h1>
+
+    <div class="calendario-container">
+
+        <table>
+            <caption>Outubro - 2025</caption>
+            <thead>
+                <tr class="dia-semana">
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="outro-mes">28</td>
+                    <td class="outro-mes">29</td>
+                    <td class="outro-mes">30</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td class="feriado">
+                        11
+                        <span class="agendamento">Feriado: Véspera</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="feriado">
+                        12
+                        <span class="agendamento">N. Sra. Aparecida</span>
+                        <span class="agendamento">Dia das Crianças</span>
+                    </td>
+                    <td>
+                        13
+                        <span class="agendamento destaque">Estudo: Projeto A</span>
+                    </td>
+                    <td>
+                        14
+                    </td>
+                    <td>
+                        15
+                        <span class="agendamento">Dia do Professor</span>
+                    </td>
+                    <td>
+                        16
+                    </td>
+                    <td>
+                        17
+                    </td>
+                    <td>
+                        18
+                    </td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>
+                        20
+                        <span class="agendamento">Compromisso Pessoal</span>
+                    </td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>
+                        25
+                        <span class="agendamento">Atividade Física</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>
+                        31
+                        <span class="agendamento destaque">Revisão Geral</span>
+                    </td>
+                    <td class="outro-mes">1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <caption>Novembro - 2025</caption>
+            <thead>
+                <tr class="dia-semana">
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="outro-mes">26</td>
+                    <td class="outro-mes">27</td>
+                    <td class="outro-mes">28</td>
+                    <td class="outro-mes">29</td>
+                    <td class="outro-mes">30</td>
+                    <td class="outro-mes">31</td>
+                    <td class="feriado">
+                        1
+                        <span class="agendamento">Feriado: Finados (Véspera)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="feriado">
+                        2
+                        <span class="agendamento">Finados</span>
+                    </td>
+                    <td>3</td>
+                    <td>
+                        4
+                        <span class="agendamento">Reunião de Trabalho</span>
+                    </td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>
+                        7
+                        <span class="agendamento destaque">Estudo: Projeto B</span>
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td class="feriado">
+                        15
+                        <span class="agendamento">Proclamação da República</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td class="feriado">
+                        20
+                        <span class="agendamento">Consciência Negra</span>
+                    </td>
+                    <td>
+                        21
+                    </td>
+                    <td>
+                        22
+                        <span class="agendamento">Lazer/Passeio</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>
+                        26
+                        <span class="agendamento destaque">Prazo Final - Tarefa X</span>
+                    </td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td class="outro-mes">1</td>
+                    <td class="outro-mes">2</td>
+                    <td class="outro-mes">3</td>
+                    <td class="outro-mes">4</td>
+                    <td class="outro-mes">5</td>
+                    <td class="outro-mes">6</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <caption>Dezembro - 2025</caption>
+            <thead>
+                <tr class="dia-semana">
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="outro-mes">30</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>
+                        4
+                        <span class="agendamento">Consulta Médica</span>
+                    </td>
+                    <td>
+                        5
+                        <span class="agendamento destaque">Início Férias Estudo</span>
+                    </td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>
+                        13
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>
+                        20
+                        <span class="agendamento">Compras de Natal</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>
+                        24
+                        <span class="agendamento">Véspera de Natal</span>
+                    </td>
+                    <td class="feriado">
+                        25
+                        <span class="agendamento">Natal</span>
+                    </td>
+                    <td>26</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>
+                        31
+                        <span class="agendamento">Véspera de Ano Novo</span>
+                    </td>
+                    <td class="outro-mes">1</td>
+                    <td class="outro-mes">2</td>
+                    <td class="outro-mes">3</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
