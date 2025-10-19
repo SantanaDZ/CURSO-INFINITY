@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura Básica com Paleta de Cores</title>
+
+    <style>
+        /* Variáveis CSS para a Paleta */
+        :root {
+            --cor-fundo-principal: #F7F7F7; /* Branco Suave */
+            --cor-fundo-secundario: #1D3557; /* Azul Escuro Profundo */
+            --cor-texto-principal: #333333; /* Cinza Escuro */
+            --cor-destaque: #457B9D; /* Ciano Vibrante */
+            --cor-suporte: #A8DADC; /* Verde Mar */
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo-principal);
+            color: var(--cor-texto-principal);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--cor-fundo-secundario);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        /* SECTION (Conteúdo Principal) */
+        section {
+            flex: 3; /* Ocupa 3x mais espaço que o aside */
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ASIDE (Barra Lateral) */
+        aside {
+            flex: 1; /* Ocupa 1x espaço */
+            padding: 20px;
+            background-color: var(--cor-suporte);
+            color: var(--cor-fundo-secundario);
+            border-radius: 8px;
+        }
+        
+        aside h3 {
+            border-bottom: 2px solid var(--cor-fundo-secundario);
+            padding-bottom: 10px;
+        }
+
+        /* ELEMENTOS ADICIONAIS */
+        .botoes {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Botões */
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-principal {
+            background-color: var(--cor-destaque);
+            color: white;
+        }
+
+        .btn-principal:hover {
+            background-color: #3b6b8a; /* Um pouco mais escuro */
+        }
+
+        .btn-secundario {
+            background-color: var(--cor-fundo-secundario);
+            color: white;
+        }
+
+        /* Links */
+        a {
+            color: var(--cor-destaque);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: var(--cor-fundo-secundario);
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--cor-fundo-secundario);
+            color: var(--cor-suporte);
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meu Site com Paleta Harmoniosa</h1>
+        <nav>
+            <a href="#">Início</a> |
+            <a href="#">Serviços</a> |
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2>Conteúdo Principal da Seção</h2>
+            <p>Este é o conteúdo principal da página. A cor de fundo branca em contraste com o fundo escuro do header/footer e a cor de texto cinza escuro garantem uma excelente **legibilidade**.</p>
+            
+            <h3>Elementos de Ação</h3>
+            <div class="botoes">
+                <button class="btn-principal">Botão de Ação Principal</button>
+                <button class="btn-secundario">Botão Secundário</button>
+            </div>
+
+            <p>Visite o <a href="http://colormind.io" target="_blank">site Colormind</a> para gerar suas próprias paletas de cores fantásticas!</p>
+        </section>
+
+        <aside>
+            <h3>Barra Lateral (Aside)</h3>
+            <p>Esta área utiliza a cor de **suporte** (`#A8DADC`), que é um tom mais claro, para se diferenciar do conteúdo principal e chamar a atenção para informações adicionais.</p>
+            <ul>
+                <li>Link Rápido 1</li>
+                <li>Link Rápido 2</li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Layout Básico Estilizado. Paleta de cores gerada de forma harmoniosa.</p>
+    </footer>
+
+</body>
+</html>
