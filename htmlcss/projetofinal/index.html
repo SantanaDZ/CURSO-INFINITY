@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio Pessoal - Desenvolvedor Web</title>
+    <!-- Carrega a fonte Inter do Google Fonts para um visual moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Ícones Font Awesome para redes sociais e habilidades -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Paleta de Cores & Variáveis */
+        :root {
+            --cor-primaria: #2c3e50;    /* Azul Marinho Escuro (Fundo Header/Footer) */
+            --cor-secundaria: #3498db; /* Azul Claro (Destaque/Botões) */
+            --cor-fundo: #ecf0f1;      /* Cinza Claro Suave (Fundo Principal) */
+            --cor-texto: #34495e;      /* Cinza Escuro (Texto Principal) */
+            --cor-sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --cor-card-fundo: white;
+            
+            /* Variáveis de Espaçamento Mobile-First */
+            --espacamento-padrao: 1.5rem;
+            --font-h2: 1.8rem;
+        }
+
+        /* Estilos Base e Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Títulos de Seção */
+        h2 {
+            font-size: var(--font-h2);
+            color: var(--cor-primaria);
+            text-align: center;
+            margin-bottom: var(--espacamento-padrao);
+            border-bottom: 3px solid var(--cor-secundaria);
+            display: inline-block;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+
+        /* Layout Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--espacamento-padrao);
+        }
+
+        section {
+            padding: 3rem 0;
+            background-color: var(--cor-card-fundo);
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--cor-sombra);
+        }
+        
+        /* ------------------------------------- */
+        /* HEADER / INTRODUÇÃO */
+        /* ------------------------------------- */
+        #intro {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 0;
+            box-shadow: none;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        .profile-content {
+            display: flex;
+            flex-direction: column; /* Mobile: coluna */
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--cor-secundaria);
+        }
+
+        #intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ------------------------------------- */
+        /* HABILIDADES (Flexbox para alinhar) */
+        /* ------------------------------------- */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .skill-item {
+            background-color: var(--cor-secundaria);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: var(--cor-sombra);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* ------------------------------------- */
+        /* PROJETOS (Grid para layout responsivo) */
+        /* ------------------------------------- */
+        .projects-grid {
+            display: grid;
+            /* Mobile: 1 coluna */
+            grid-template-columns: 1fr; 
+            gap: 20px;
+            padding: 0 var(--espacamento-padrao);
+        }
+
+        .project-card {
+            background-color: var(--cor-card-fundo);
+            border: 1px solid #ddd;
+            padding: var(--espacamento-padrao);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 10px;
+        }
+        
+        .project-card .project-links a {
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* ------------------------------------- */
+        /* CONTATO (Flexbox para alinhar itens) */
+        /* ------------------------------------- */
+        #contact .container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        /* Redes Sociais */
+        .social-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .social-links a {
+            font-size: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Formulário */
+        .contact-form {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        .contact-form button {
+            background-color: var(--cor-secundaria);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* ------------------------------------- */
+        /* FOOTER */
+        /* ------------------------------------- */
+        footer {
+            background-color: var(--cor-primaria);
+            color: var(--cor-suporte);
+            text-align: center;
+            padding: 20px;
+            margin-top: 0;
+            border-radius: 0;
+        }
+
+        /* ===================================== */
+        /* MEDIA QUERIES (Responsividade) */
+        /* ===================================== */
+        
+        /* Telas Médias (Tablets) */
+        @media (min-width: 600px) {
+            :root {
+                /* Aumenta a fonte e o espaçamento para telas maiores */
+                --espacamento-padrao: 2rem;
+                --font-h2: 2.2rem;
+            }
+            
+            /* Ajusta a intro para alinhamento horizontal */
+            .profile-content {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            
+            .profile-text {
+                padding-left: 20px;
+            }
+            
+            /* Ajusta a grid de projetos para 2 colunas */
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Telas Grandes (Desktops) */
+        @media (min-width: 992px) {
+            :root {
+                --font-h2: 2.5rem;
+            }
+
+            /* Ajusta a grid de projetos para 3 colunas */
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Contato: coloca links e form lado a lado */
+            #contact .container {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+            
+            .contact-form, .social-area {
+                width: 45%;
+                max-width: none;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO / INTRODUÇÃO -->
+    <section id="intro">
+        <div class="container profile-content">
+            <!-- Imagem de Perfil Placeholder (substitua o URL) -->
+            <img 
+                src="https://placehold.co/150x150/3498db/ffffff?text=FT" 
+                alt="Foto de Perfil do Desenvolvedor" 
+                class="profile-img"
+            >
+            <div class="profile-text">
+                <h1>Fictício Toledo</h1>
+                <p>Desenvolvedor Web Full-Stack | Especialista em Experiência do Usuário</p>
+                <p>
+                    Com 5 anos de experiência no desenvolvimento de aplicações escaláveis e foco em
+                    criação de interfaces responsivas e acessíveis. Minha paixão é transformar ideias complexas
+                    em soluções digitais elegantes e intuitivas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" class="container">
+        <h2>Habilidades Técnicas</h2>
+        <ul class="skills-list">
+            <li class="skill-item"><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+            <li class="skill-item"><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
+            <li class="skill-item"><i class="fab fa-react"></i> React & Redux</li>
+            <li class="skill-item"><i class="fab fa-node-js"></i> Node.js & Express</li>
+            <li class="skill-item"><i class="fas fa-database"></i> SQL & NoSQL (MongoDB)</li>
+            <li class="skill-item"><i class="fab fa-git-alt"></i> Git/GitHub</li>
+            <li class="skill-item"><i class="fas fa-mobile-alt"></i> Design Responsivo</li>
+        </ul>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projects">
+        <h2 class="container">Projetos em Destaque</h2>
+        <div class="projects-grid container">
+            
+            <article class="project-card">
+                <h3>E-commerce Moderno</h3>
+                <p>Plataforma de vendas construída com React e Node.js. Inclui sistema de carrinho, autenticação de usuário e integração de pagamento.</p>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-laptop-code"></i> Ver Demo</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> Código Fonte</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h3>Dashboard Analítico</h3>
+                <p>Interface de administração responsiva utilizando Grid CSS para visualização de dados em tempo real. Otimizado para alta performance.</p>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-laptop-code"></i> Ver Demo</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> Código Fonte</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h3>API de Receitas</h3>
+                <p>Serviço RESTful desenvolvido com Express e MongoDB para gerenciamento e busca de receitas culinárias.</p>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-laptop-code"></i> Ver Docs</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> Código Fonte</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    
+    <!-- EXPERIÊNCIA (Simulando uma seção simples) -->
+    <section id="experience" class="container">
+        <h2>Experiência Profissional</h2>
+        <article>
+            <h3>Desenvolvedor Full-Stack Sênior | Tech Solutions Ltda.</h3>
+            <p>Jan 2021 - Presente</p>
+            <ul>
+                <li>Liderança no desenvolvimento de novos módulos em React.</li>
+                <li>Otimização de performance de APIs legadas (aumento de 30%).</li>
+                <li>Mentoria de desenvolvedores juniores.</li>
+            </ul>
+        </article>
+        <hr style="margin: 20px 0; border-color: #eee;">
+         <article>
+            <h3>Desenvolvedor Front-end Júnior | Startup Digital</h3>
+            <p>Fev 2019 - Dez 2020</p>
+            <ul>
+                <li>Implementação de interfaces de usuário com HTML e CSS.</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contact">
+        <h2 class="container">Entre em Contato</h2>
+        <div class="container">
+            
+            <!-- Links Sociais -->
+            <div class="social-area">
+                <h3>Minhas Redes</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:ficticio@email.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Formulário de Contato -->
+            <form action="#" method="POST" class="contact-form">
+                <h3>Envie uma Mensagem</h3>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="assunto">Assunto:</label>
+                <input type="text" id="assunto" name="assunto">
+
+                <label for="msg">Mensagem:</label>
+                <textarea id="msg" name="msg" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2024 Fictício Toledo. Desenvolvido com HTML e CSS puro.</p>
+    </footer>
+
+</body>
+</html>
