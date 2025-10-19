@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis CSS Responsivas</title>
+    <style>
+        /* 1. VARIÁVEIS CSS (Padrão: Telas Pequenas) */
+        /* Definidas no seletor :root */
+        :root {
+            /* Tamanhos de Fonte */
+            --font-size-h1: 2rem;
+            --font-size-p: 1rem;
+            
+            /* Espaçamentos e Margens */
+            --spacing-section: 20px;
+            --spacing-element: 10px;
+            
+            /* Cores (apenas para clareza visual) */
+            --color-primary: #3498db;
+            --color-text: #333;
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: var(--color-text);
+        }
+
+        /* 2. APLICANDO AS VARIÁVEIS */
+        
+        /* Cabeçalhos (H1) */
+        h1 {
+            /* Aplicação do tamanho de fonte da variável */
+            font-size: var(--font-size-h1);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-element); /* Aplicação do espaçamento */
+        }
+        
+        /* Parágrafos (P) */
+        p {
+            /* Aplicação do tamanho de fonte da variável */
+            font-size: var(--font-size-p);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-element); /* Aplicação do espaçamento */
+        }
+
+        /* Seções e Contêineres */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        section {
+            background-color: white;
+            padding: var(--spacing-section); /* Aplicação do espaçamento de seção */
+            margin-bottom: var(--spacing-section); /* Aplicação do espaçamento de seção */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Modifica o tamanho da borda para visualização */
+        .indicator {
+            padding: 10px;
+            border: 2px solid red;
+            background-color: #ffe0e0;
+            text-align: center;
+            margin-bottom: var(--spacing-element);
+        }
+        
+
+        /* 3. MEDIA QUERIES PARA MODIFICAR AS VARIÁVEIS */
+
+        /* Telas Médias (Tablet): > 600px */
+        @media (min-width: 600px) {
+            /* Sobrescrevendo as variáveis para tela MÉDIA */
+            :root {
+                --font-size-h1: 2.8rem;
+                --font-size-p: 1.1rem;
+                --spacing-section: 30px;
+                --spacing-element: 15px;
+            }
+        }
+
+        /* Telas Grandes (Desktop): > 992px */
+        @media (min-width: 992px) {
+            /* Sobrescrevendo as variáveis para tela GRANDE */
+            :root {
+                --font-size-h1: 3.5rem;
+                --font-size-p: 1.25rem;
+                --spacing-section: 40px;
+                --spacing-element: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="indicator">
+            <p>Redimensione a tela para ver as variáveis **font-size** e **spacing** mudarem.</p>
+            <p>**Tamanho Atual do H1:** <span style="font-weight: bold; color: green;">var(--font-size-h1)</span></p>
+        </div>
+
+        <section>
+            <h1>Título Principal (H1)</h1>
+            <p>Este texto base usa a variável **--font-size-p**. A margem inferior deste parágrafo e o padding desta seção são controlados pela variável **--spacing-element** e **--spacing-section**.</p>
+            <p>Em telas pequenas (padrão), o H1 é menor e o espaçamento é reduzido. Conforme a tela cresce, o Media Query sobrescreve as variáveis, e o layout se adapta.</p>
+        </section>
+
+        <section>
+            <h2>Subtítulo de Exemplo</h2>
+            <p>Note como a área de padding desta seção muda drasticamente quando você transiciona entre os diferentes tamanhos de tela definidos nos Media Queries (600px e 992px).</p>
+        </section>
+    </div>
+
+</body>
+</html>
