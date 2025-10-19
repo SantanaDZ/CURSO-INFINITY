@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contêiner Flexbox Centralizado</title>
+    <style>
+        /* Estilos Globais para o corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5; /* Fundo suave */
+            height: 100vh; /* Define a altura do corpo para 100% da viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 1. O Contêiner Flexível */
+        .flex-container {
+            /* 1. Aplica display: flex; */
+            display: flex;
+            
+            /* 2. Centraliza horizontalmente (eixo principal) */
+            justify-content: center;
+            
+            /* 3. Centraliza verticalmente (eixo cruzado) */
+            align-items: center;
+            
+            /* 4. Define uma altura mínima para o alinhamento vertical ser visível */
+            min-height: 300px; 
+            
+            width: 80%; /* Largura do contêiner */
+            background-color: #1D3557; /* Azul Escuro */
+            border-radius: 10px;
+            padding: 20px;
+            gap: 20px; /* Espaço entre as caixas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Os Itens Flexíveis (As Caixas) */
+        .box {
+            width: 120px;
+            height: 120px;
+            background-color: #457B9D; /* Ciano Vibrante */
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px;
+            
+            /* Alinhamento do texto DENTRO da caixa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            transition: transform 0.3s;
+        }
+        
+        .box:hover {
+            transform: scale(1.05); /* Efeito ao passar o mouse */
+            background-color: #A8DADC;
+            color: #1D3557;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex-container">
+        <div class="box">Caixa 1</div>
+        <div class="box">Caixa 2</div>
+        <div class="box">Caixa 3</div>
+    </div>
+
+</body>
+</html>
