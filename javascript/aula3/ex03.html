@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let qtdNumeros = Number(
+        prompt("Digite a quantidade de números para somar: ")
+      );
+      let contador = 0;
+      let soma = 0;
+
+      while (contador < qtdNumeros) {
+        const numero = Number(prompt("Digite o valor para somar: "));
+        contador++;
+        soma += numero;
+      }
+      alert(`A soma é igual a: ${soma}`);
+    </script>
+  </body>
+</html>

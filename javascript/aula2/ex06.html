@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let idade = Number(prompt("Digite a idade: "));
+
+      if (isNaN(idade)) {
+        alert("Valor inválido");
+      } else {
+        if (idade < 16) {
+          alert("Não pode votar");
+        } else if (idade == 16 || idade == 17 || idade >= 65) {
+          alert("Voto Facultativo");
+        } else {
+          alert("Voto obrigatório");
+        }
+      }
+    </script>
+  </body>
+</html>
