@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Tarefas</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .container {
+        background: white;
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #bbb;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        background: #2196f3;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background: #0b7dda;
+    }
+
+    ul {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    li {
+        list-style: none;
+        background: #eee;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        margin-bottom: 8px;
+        align-items: center;
+    }
+
+    .concluida {
+        text-decoration: line-through;
+        color: green;
+    }
+
+    .botoes button {
+        width: auto;
+        padding: 5px 10px;
+        margin-left: 5px;
+    }
+
+    .btn-remove { background: #e53935; }
+    .btn-remove:hover { background: #c62828; }
+
+    .btn-ok { background: #4caf50; }
+    .btn-ok:hover { background: #2e7d32; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📝 Lista de Tarefas</h2>
+
+    <input id="inputTarefa" type="text" placeholder="Digite uma nova tarefa">
+
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+
+    <ul id="lista"></ul>
+</div>
+
+<script>
+    let tarefas = [];
+
+    function atualizarLista() {
+        const lista = document.getElementById("lista");
+        lista.innerHTML = ""; 
+
+        tarefas.forEach((tarefa, index) => {
+            const li = document.createElement("li");
+
+            const texto = document.createElement("span");
+            texto.textContent = tarefa.descricao;
+            if (tarefa.concluida) texto.classList.add("concluida");
+
+            const divBotoes = document.createElement("div");
+            divBotoes.classList.add("botoes");
+
+            const btnConcluir = document.createElement("button");
+            btnConcluir.textContent = "✔";
+            btnConcluir.classList.add("btn-ok");
+            btnConcluir.onclick = () => concluirTarefa(index);
+
+            const btnRemover = document.createElement("button");
+            btnRemover.textContent = "🗑";
+            btnRemover.classList.add("btn-remove");
+            btnRemover.onclick = () => removerTarefa(index);
+
+            divBotoes.appendChild(btnConcluir);
+            divBotoes.appendChild(btnRemover);
+
+            li.appendChild(texto);
+            li.appendChild(divBotoes);
+
+            lista.appendChild(li);
+        });
+    }
+
+    function adicionarTarefa() {
+        let texto = document.getElementById("inputTarefa").value;
+
+        if (texto.trim() === "") {
+            alert("Digite uma tarefa!");
+            return;
+        }
+
+        tarefas.push({ descricao: texto, concluida: false });
+        document.getElementById("inputTarefa").value = "";
+        atualizarLista();
+    }
+
+    function removerTarefa(index) {
+        tarefas.splice(index, 1);
+        atualizarLista();
+    }
+
+    function concluirTarefa(index) {
+        tarefas[index].concluida = !tarefas[index].concluida;
+        atualizarLista();
+    }
+</script>
+
+</body>
+</html>

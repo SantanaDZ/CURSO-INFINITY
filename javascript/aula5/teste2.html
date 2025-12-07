@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<title>Lista de Tarefas</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        min-height: 100vh;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .container {
+        background: white;
+        width: 420px;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 25px rgba(0,0,0,0.3);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0px); }
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    input {
+        align-self: center;
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        outline: none;
+        transition: 0.3s;
+        font-size: 15px;
+    }
+
+    input:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 8px rgba(37,117,252,0.4);
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #2575fc;
+        color: white;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #185adf;
+    }
+
+    ul {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+        animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .concluida {
+        text-decoration: line-through;
+        color: green;
+    }
+
+    .botoes button {
+        width: auto;
+        padding: 6px 10px;
+        margin-left: 6px;
+        font-size: 14px;
+    }
+
+    .btn-remove { background: #d32f2f; }
+    .btn-remove:hover { background: #b71c1c; }
+
+    .btn-ok { background: #43a047; }
+    .btn-ok:hover { background: #2e7d32; }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📝 Minhas Tarefas</h2>
+
+    <input id="inputTarefa" type="text" placeholder="Digite uma tarefa">
+
+    <button onclick="adicionarTarefa()">Adicionar</button>
+
+    <ul id="lista"></ul>
+</div>
+
+<script>
+    let tarefas = [];
+
+    // Carregar do localStorage ao abrir
+    if (localStorage.getItem("tarefas")) {
+        tarefas = JSON.parse(localStorage.getItem("tarefas"));
+    }
+
+    function salvar() {
+        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    }
+
+    function atualizarLista() {
+        const lista = document.getElementById("lista");
+        lista.innerHTML = "";
+
+        tarefas.forEach((t, i) => {
+            const li = document.createElement("li");
+
+            const texto = document.createElement("span");
+            texto.textContent = t.descricao;
+            if (t.concluida) texto.classList.add("concluida");
+
+            const botoes = document.createElement("div");
+            botoes.classList.add("botoes");
+
+            const btnOk = document.createElement("button");
+            btnOk.textContent = "✔";
+            btnOk.classList.add("btn-ok");
+            btnOk.onclick = () => concluirTarefa(i);
+
+            const btnRemove = document.createElement("button");
+            btnRemove.textContent = "🗑";
+            btnRemove.classList.add("btn-remove");
+            btnRemove.onclick = () => removerTarefa(i);
+
+            botoes.appendChild(btnOk);
+            botoes.appendChild(btnRemove);
+
+            li.appendChild(texto);
+            li.appendChild(botoes);
+
+            lista.appendChild(li);
+        });
+    }
+
+    function adicionarTarefa() {
+        let texto = document.getElementById("inputTarefa").value;
+
+        if (texto.trim() === "") {
+            alert("Digite uma tarefa!");
+            return;
+        }
+
+        tarefas.push({ descricao: texto, concluida: false });
+
+        salvar();
+        atualizarLista();
+
+        document.getElementById("inputTarefa").value = "";
+    }
+
+    function removerTarefa(i) {
+        tarefas.splice(i, 1);
+        salvar();
+        atualizarLista();
+    }
+
+    function concluirTarefa(i) {
+        tarefas[i].concluida = !tarefas[i].concluida;
+        salvar();
+        atualizarLista();
+    }
+
+    atualizarLista(); // exibir ao carregar
+</script>
+
+</body>
+</html>
