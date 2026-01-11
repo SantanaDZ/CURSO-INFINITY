@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Declarando o objeto aluno com inputs do usuário
+        const aluno = {
+            nome: prompt("Digite o nome do aluno:"),
+            idade: Number(prompt("Digite a idade do aluno:")),
+            notas: [
+                Number(prompt("Digite a nota 1:")),
+                Number(prompt("Digite a nota 2:")),
+                Number(prompt("Digite a nota 3:"))
+            ],
+
+            // 2. Método para calcular a média
+            calcularMedia() {
+                const soma = this.notas.reduce((acc, nota) => acc + nota, 0);
+                return (soma / this.notas.length).toFixed(1);
+            }
+        };
+
+        // 3. Utilizando desestruturação
+        const { nome, idade } = aluno;
+
+        // 4. Usando o spread operator para adicionar uma nota extra (ex: participação)
+        const notaExtra = Number(prompt("Digite uma nota extra de participação:"));
+        aluno.notas = [...aluno.notas, notaExtra];
+
+        // 5. Função para verificar a situação
+        const verificarSituacao = (media) => media >= 7 ? "APROVADO" : "REPROVADO";
+
+        // --- EXIBIÇÃO ---
+
+        console.log(`%c Ficha do Aluno `, "background: #222; color: #bada55; font-size: 14px");
+        console.log(`Nome: ${nome}`);
+        console.log(`Idade: ${idade} anos`);
+
+        // 6. Loop para exibir todas as notas
+        console.log("Histórico de Notas:");
+        for (let i = 0; i < aluno.notas.length; i++) {
+            console.log(` -> Avaliação ${i + 1}: ${aluno.notas[i]}`);
+        }
+
+        const mediaFinal = aluno.calcularMedia();
+        const situacao = verificarSituacao(mediaFinal);
+
+        console.log("-----------------------");
+        console.log(`MÉDIA FINAL: ${mediaFinal}`);
+        console.log(`SITUAÇÃO: ${situacao}`);
+    </script>
+
+</body>
+
+</html>
