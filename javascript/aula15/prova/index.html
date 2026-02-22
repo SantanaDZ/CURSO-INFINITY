@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech System - API User List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>USER_FETCH_MODULE<span>_v4.0</span></h1>
+        </header>
+
+        <section class="project-info">
+            <div class="terminal-header">PROJECT_METADATA</div>
+            <p>
+                <span class="label">PROVA:</span> Infinity School - Consumo de Usuários.<br>
+                <span class="label">MÉTODO:</span> Fetch API com verificação de status HTTP (response.ok).<br>
+                <span class="label">DOM:</span> Criação dinâmica de elementos &lt;li&gt;.
+            </p>
+        </section>
+
+        <div class="form-actions">
+            <button id="btnCarregar" class="tech-button">CARREGAR_USUÁRIOS</button>
+        </div>
+
+        <div id="mensagemErro" class="error-message" style="margin-top: 15px;"></div>
+
+        <section class="list-section">
+            <h2>DATABASE_LIST_RESULTS</h2>
+            <div class="table-container">
+                <ul id="listaUsuariosAPI" style="list-style: none; padding: 0;"></ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

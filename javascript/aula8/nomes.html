@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Nomes</title>
+  </head>
+  <body>
+    <h1>Nomes</h1>
+
+    <div>
+      <input type="text" id="nome" placeholder="Digite um nome" />
+      <button onclick="handleAdicionarNome()">Adicionar</button>
+    </div>
+
+    <ul id="nomes"></ul>
+
+    <script>
+      const nomes = [];
+
+      function handleAdicionarNome() {
+        // 1. Buscar o valor do Input "nome"
+        const nomeInput = document.getElementById("nome");
+        const nome = nomeInput.value;
+
+        // 2. Adicionar o Nome na Lista
+        nomes.push(nome);
+
+        // 3. Chamar a função "handleMostrarNomes"
+        handleMostrarNomes();
+
+        // 4. Limpar o Input
+        nomeInput.value = "";
+      }
+
+      function handleMostrarNomes() {
+        // 1. Buscar a Lista (ul) no HTML e armazenar em uma variavel
+        const nomesUl = document.getElementById("nomes");
+
+        // 2. Limpar variavel da ul de nomes
+        nomesUl.innerText = "";
+
+        // 3. Percorrer o array de nomes, e para cada nome, adicionar um <li>
+        nomes.forEach((nome) => {
+          nomesUl.innerHTML += `<li>${nome}</li>`;
+        });
+      }
+    </script>
+  </body>
+</html>
